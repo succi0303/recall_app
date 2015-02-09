@@ -1,0 +1,16 @@
+<div class="page-header">
+  <h1><%= @title %></h1>
+</div>
+
+<p>
+  <form action="/<%= @post.id %>" method="post">
+    <input type="hidden" name="_method" value="put" >
+    <div class="input-group">
+      <input type="text" name="content" class="form-control" value="<%= h @post.content %>">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">Update Note!</button>
+      </span>
+    </div>
+  </form>
+</p>
+<p><a href="/<%= @post.id %>/delete">Delete</a></p>

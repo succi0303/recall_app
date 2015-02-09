@@ -1,0 +1,10 @@
+<div class="page-header">
+  <h1><%= @title %></h1>
+</div>
+
+<p>Are you sure you want to delete the following note: <em>"<%= h @post.content %>"</em></p>
+
+<form action="/<%= @post.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit" class="btn btn-danger">Yes, Delete It!</button>
+</form>
