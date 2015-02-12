@@ -22,6 +22,8 @@ class RecallApp < Sinatra::Base
   set :app_file, __FILE__
   set :root, File.dirname(__FILE__)
 
+  SITE_TITLE = "Recall App"
+
   helpers do
     include Rack::Utils
     alias_method :h, :escape_html
@@ -36,6 +38,12 @@ class RecallApp < Sinatra::Base
     end
 
     erb :index
+  end
+
+  get '/rss.xml' do
+    @posts = Post.all.order('created_at DESC')
+
+    builder :rss
   end
 
   post '/' do
